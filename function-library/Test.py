@@ -20,7 +20,7 @@ def read_process_cpu_info():
     count = 4
     while count < 11:
         newstr = newstr + '\n'
-
+        count = count + 1
     print(newstr)
 #这里可能多个文件
 def read_log(path_prefix,*args):
