@@ -17,11 +17,11 @@ def read_process_cpu_info():
     lines = []
     lines = out_info.split('\n')
     newstr = ''
-    count = 4
-    while count < 11:
+    count = 6
+    while count < 13:
         newstr = newstr + lines[count] + '\n'
         count = count + 1
-    print(newstr)
+    print("new_str:" + newstr)
 #这里可能多个文件
 def read_log(path_prefix,*args):
     for file_name in args:
