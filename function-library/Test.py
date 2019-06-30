@@ -14,7 +14,14 @@ def read_process_cpu_info():
 
     out_info = out.decode('unicode-escape')
     print(out_info)
+    lines = []
+    lines = out_info.split('\n')
+    newstr = ''
+    count = 4
+    while count < 11:
+        newstr = newstr + '\n'
 
+    print(newstr)
 #这里可能多个文件
 def read_log(path_prefix,*args):
     for file_name in args:
