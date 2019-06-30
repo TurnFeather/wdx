@@ -19,7 +19,7 @@ def read_process_cpu_info():
     newstr = ''
     count = 4
     while count < 11:
-        newstr = newstr + '\n'
+        newstr = newstr + lines[count] + '\n'
         count = count + 1
     print(newstr)
 #这里可能多个文件
