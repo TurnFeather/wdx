@@ -6,14 +6,13 @@ import os
 import subprocess
 
 def read_process_cpu_info():
-    top_info = subprocess.Popen(["top", "-n", "1"], stdout=subprocess.PIPE)
+    top_info = subprocess.Popen(["top","-o","%MEM", "-n", "1"], stdout=subprocess.PIPE)
     out, err = top_info.communicate()
 
     # output info get from console has many unicode escape character ,such as \x1b(B\x1b[m\x1b[39;49m\x1b[K\n\x1b(B\x1b[m
     # use decode('unicode-escape') to process
 
     out_info = out.decode('unicode-escape')
-    print(out_info)
     lines = []
     lines = out_info.split('\n')
     newstr = ''
@@ -21,7 +20,7 @@ def read_process_cpu_info():
     while count < 13:
         newstr = newstr + lines[count] + '\n'
         count = count + 1
-    print("new_str:" + newstr)
+    return newstr
 #这里可能多个文件
 def read_log(path_prefix,*args):
     for file_name in args:
@@ -39,4 +38,4 @@ def read_log(path_prefix,*args):
 # wb.save(r"C:\Users\yuron\Desktop\python_test.xlsx")
 
 if __name__ == "__main__":
-    read_process_cpu_info()
+    print(read_process_cpu_info())
