@@ -6,7 +6,7 @@ import os
 import subprocess
 
 def read_process_cpu_info():
-    top_info = subprocess.Popen(["top","-o","%MEM", "-n", "1"], stdout=subprocess.PIPE)
+    top_info = subprocess.Popen(["top","-o","%CPU", "-n", "1"], stdout=subprocess.PIPE)
     out, err = top_info.communicate()
 
     # output info get from console has many unicode escape character ,such as \x1b(B\x1b[m\x1b[39;49m\x1b[K\n\x1b(B\x1b[m
